@@ -3,3 +3,5 @@
 *.jl.mem
 *.dll
 *.o
+*.so
+/deps/cwrapper.cpp

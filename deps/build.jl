@@ -27,12 +27,14 @@ end
 # generate wrapper code
 include("generate_code.jl")
 path = dirname(@__FILE__)
+libo = joinpath(path, "build", "earcut.o")
+
 cd(path) do
-    gpp, incdir = find_gpp()
+    gpp, incdir, ext = find_gpp()
     libo = joinpath(path, "build", "earcut.o")
     isfile(libo) && rm(libo)
     run(`$gpp -c -fPIC -std=c++11 cwrapper.cpp -I $incdir -o $libo`)
-    lib = joinpath(path, "build", "earcut.dll")
+    lib = joinpath(path, "build", "earcut.$ext")
     isfile(lib) && rm(lib)
     run(`$gpp -shared -o $lib $libo`)
 end
