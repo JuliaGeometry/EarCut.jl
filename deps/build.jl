@@ -46,4 +46,5 @@ cd(path) do
     lib = joinpath(base, "earcut.$ext")
     isfile(lib) && save_rm(lib)
     run(`$gpp -shared -o $lib $libo`)
+    info("Compiled EarCut successfully!")
 end

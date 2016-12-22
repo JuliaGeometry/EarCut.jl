@@ -57,8 +57,15 @@ jlfile = open(path*"/src/cwrapper.jl", "w")
 cfile = open(path*"/deps/cwrapper.cpp", "w")
 
 println(jlfile, """
-const lib = joinpath(dirname(@__FILE__), "..", "deps", "build", "earcut")
+const lib = Libdl.find_library(
+    ["earcut"],
+    [joinpath(dirname(@__FILE__), "..", "deps", "build")]
+)
+if isempty(lib)
+    error("Library not found. Please run Pkg.build(\\\"EarCut\\\").")
+end
 """)
+
 header = joinpath("earcut", "earcut.hpp")
 println(cfile, """
 #include "$header"
