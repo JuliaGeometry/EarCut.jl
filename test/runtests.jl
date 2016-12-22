@@ -1,4 +1,4 @@
-using EarClip, GeometryTypes
+using EarCut, GeometryTypes
 using Base.Test
 
 usborder = [
@@ -6,11 +6,8 @@ usborder = [
   Point2f0[(654,1419),(653,1419),(654,1423),(656,1425),(654,1419)]
 ]
 triangles = triangulate(usborder)
-using GLVisualize, Colors; w= glscreen(); @async renderloop(w)
-v = map(x-> Point3f0(x[1], x[2], 0), vcat(usborder...))
-mesh = GLNormalMesh(vertices=v, faces=triangles)
-empty!(w)
-v2 = map(x-> Point3f0(x[1], x[2], 3), vcat(usborder...))
-_view(visualize((Circle, v2), scale = Vec3f0(2), color = RGBA(1f0, 0f0, 0f0, 1f0)), camera=:orthographic_pixel)
-_view(visualize(mesh), camera=:orthographic_pixel)
-GLAbstraction.center!(w, :orthographic_pixel)
+
+# just check basic wrapper functionality. Check for correct size and that data is not garbage
+@test length(triangles) == 120
+@test first(triangles) == GLTriangle(0, 1, 2)
+@test last(triangles)  == GLTriangle(123, 57, 122)
