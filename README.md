@@ -22,7 +22,7 @@ Pkg.test("EarCut")
 ```
 
 Usage:
-```
+```Julia
 using EarClip
 using GeometryTypes
 test = [Point2f0[...]] # some points defining a polygon. Must be a Vector{Vector{Point}}
