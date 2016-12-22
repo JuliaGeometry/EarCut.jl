@@ -1,5 +1,5 @@
 function find_gpp()
-    @static if is_windows()
+    if is_windows()
         #TODO, is this really the hardcoded way to get the WinRPM path to g++ ?
         gpp = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","bin","g++")
         if !isfile(gpp*".exe")
@@ -15,9 +15,9 @@ function find_gpp()
         ENV["PATH"] = ENV["PATH"] * ";" * RPMbindir;
         return gpp, incdir, "dll"
     end
-    @static if is_unix()
+    if is_unix()
         if success(`g++ --version`)
-            return "g++", "", "so"
+            return "g++", "", is_apple() ? "dylib" : "so"
         else
             error("no g++ found. Please install a version > 4.5")
         end
