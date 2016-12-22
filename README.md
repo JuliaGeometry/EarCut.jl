@@ -1,3 +1,4 @@
+
 # EarCut
 
 [![Build Status](https://travis-ci.org/SimonDanisch/EarCut.jl.svg?branch=master)](https://travis-ci.org/SimonDanisch/EarCut.jl)
@@ -10,6 +11,7 @@
 Wrapper for [earcut.hpp](https://github.com/mapbox/earcut.hpp), a header only library for triangulating polygons.
 
 License of wrapper: MIT
+
 License of earcut.hpp: [ISC](https://github.com/JuliaGeometry/EarCut.jl.git/deps/earcut/LICENSE)
 
 Install with:
