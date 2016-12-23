@@ -1,4 +1,4 @@
-The EarCut.jl package is licensed under the MIT "Expat" License:
+The Julia part of the EarCut.jl package is licensed under the MIT "Expat" License:
 
 > Copyright (c) 2016: SimonDanisch.
 > 
