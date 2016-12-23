@@ -1,3 +1,8 @@
 *.jl.cov
 *.jl.*.cov
 *.jl.mem
+*.dll
+*.o
+*.so
+/deps/cwrapper.cpp
+/src/cwrapper.jl
