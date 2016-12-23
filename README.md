@@ -2,11 +2,9 @@
 # EarCut
 
 [![Build Status](https://travis-ci.org/JuliaGeometry/EarCut.jl.svg?branch=master)](https://travis-ci.org/JuliaGeometry/EarCut.jl)
-
+[![Build status](https://ci.appveyor.com/api/projects/status/po0lqr5sg1wpdedj?svg=true)](https://ci.appveyor.com/project/SimonDanisch/earcut-jl)
 [![Coverage Status](https://coveralls.io/repos/JuliaGeometry/EarCut.jl/badge.svg?branch=master&service=github)](https://coveralls.io/github/JuliaGeometry/EarCut.jl?branch=master)
-JuliaGeometry
 [![codecov.io](http://codecov.io/github/JuliaGeometry/EarCut.jl/coverage.svg?branch=master)](http://codecov.io/github/JuliaGeometry/EarCut.jl?branch=master)
-
 
 Wrapper for [earcut.hpp](https://github.com/mapbox/earcut.hpp), a header only library for triangulating polygons.
 
