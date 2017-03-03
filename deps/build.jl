@@ -1,5 +1,19 @@
-using EarClip
-using Base.Test
+path = Pkg.dir("EarClip", "deps")
+cd(path)
+gpp = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","bin","g++")
+RPMbindir = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","bin")
+incdir = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","include")
+
+push!(Base.Libdl.DL_LOAD_PATH, RPMbindir)
+ENV["PATH"] = ENV["PATH"] * ";" * RPMbindir;
+libo = joinpath(path, "build", "earcut.o")
+run(`$gpp -c -fPIC -std=c++11 cwrapper.cpp -I $incdir -o $libo`)
+lib = joinpath(path, "build", "earcut.dll")
+run(`$gpp -shared -o $lib earcut.o`)
+println("#########################################################")
+
+
+
 
 using GeometryTypes
 usborder = [
