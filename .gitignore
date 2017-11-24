@@ -4,5 +4,3 @@
 *.dll
 *.o
 *.so
-/deps/cwrapper.cpp
-/src/cwrapper.jl
