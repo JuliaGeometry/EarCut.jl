@@ -53,3 +53,4 @@ function triangulate(polygon::Vector{Vector{Point{2, Int32}}})
     )
     unsafe_wrap(Vector{GLTriangle}, array[1], array[2])
 end
+
