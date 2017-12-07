@@ -1,13 +1,16 @@
+if is_windows()
+    using WinRPM
+end
+
 function find_gpp()
     if is_windows()
         #TODO, is this really the hardcoded way to get the WinRPM path to g++ ?
         gpp = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","bin","g++")
         if !isfile(gpp*".exe")
             info("g++ not found. installing gcc-c++ using WinRPM")
-            @eval using WinRPM
-            WinRPM.install("gcc-c++"; yes = true)
-            WinRPM.install("gcc"; yes = true)
-            WinRPM.install("headers"; yes = true)
+            WinRPM.install("gcc-c++", yes = true)
+            WinRPM.install("gcc", yes = true)
+            WinRPM.install("headers", yes = true)
         end
         RPMbindir = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","bin")
         incdir = Pkg.dir("WinRPM","deps","usr","x86_64-w64-mingw32","sys-root","mingw","include")
