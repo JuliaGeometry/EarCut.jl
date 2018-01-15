@@ -4,5 +4,3 @@
 *.dll
 *.o
 *.so
-cwrapper.jl
-cwrapper.cpp
