@@ -14,8 +14,7 @@ License of earcut.hpp: [ISC](https://github.com/JuliaGeometry/EarCut.jl.git/deps
 
 Install with:
 ```Julia
-Pkg.clone("https://github.com/JuliaGeometry/EarCut.jl.git")
-Pkg.build("EarCut")
+Pkg.add("EarCut")
 Pkg.test("EarCut")
 ```
 
