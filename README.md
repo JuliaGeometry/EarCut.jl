@@ -33,5 +33,8 @@ mesh = GLNormalMesh(vertices=v, faces=triangle_faces)
 _view(visualize(mesh), camera = :orthographic_pixel)
 GLAbstraction.center!(w, :orthographic_pixel)
 ```
+
 resulting in:
+
+
 ![image](https://user-images.githubusercontent.com/1010467/34985721-569dc228-fab5-11e7-8557-66962cbc7a70.png)
