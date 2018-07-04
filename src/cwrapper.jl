@@ -1,5 +1,3 @@
-include("../deps/deps.jl")
-
 function triangulate(polygon::Vector{Vector{Point{2, Float64}}})
     lengths = map(x-> UInt32(length(x)), polygon)
     len = UInt32(length(lengths))
