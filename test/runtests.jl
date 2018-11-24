@@ -1,5 +1,5 @@
 using EarCut, GeometryTypes
-using Base.Test
+using Test
 
 # just check basic wrapper functionality. Check for correct size and that data is not garbage
 for typ in (Float32, Float64, Int32, Int64)
