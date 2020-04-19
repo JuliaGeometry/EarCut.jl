@@ -1,4 +1,4 @@
-using EarCut, GeometryTypes
+using EarCut, GeometryBasics
 using Test
 
 # just check basic wrapper functionality. Check for correct size and that data is not garbage
@@ -11,7 +11,7 @@ for typ in (Float32, Float64, Int32, Int64)
         ]
         triangles = triangulate(usborder)
         @test length(triangles) == 120
-        @test first(triangles) == GLTriangle(1, 2, 3)
-        @test last(triangles)  == GLTriangle(124, 58, 123)
+        @test first(triangles) == GLTriangleFace(1, 2, 3)
+        @test last(triangles)  == GLTriangleFace(124, 58, 123)
     end
 end
