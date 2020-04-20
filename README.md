@@ -20,21 +20,21 @@ Pkg.test("EarCut")
 
 Usage:
 ```Julia
-using EarCut
-using GeometryTypes
+using EarCut, GeometryBasics
 a = Circle(Point2f0(0), 0.5f0)
 b = Circle(Point2f0(0), 1f0)
 polygon = [decompose(Point2f0, b), decompose(Point2f0, a)] # some points defining a polygon. Must be a Vector{Vector{Point}}
 triangle_faces = triangulate(polygon)
-# then display with e.g. GLVisualize like this:
-using GLVisualize, Colors; w = glscreen(); @async renderloop(w)
-v = map(x-> Point3f0(x[1], x[2], 0), vcat(polygon...))
-mesh = GLNormalMesh(vertices=v, faces=triangle_faces)
-_view(visualize(mesh), camera = :orthographic_pixel)
-GLAbstraction.center!(w, :orthographic_pixel)
+
+# then display with e.g. Makie like this:
+using Makie, Colors
+
+v = vcat(polygon...)
+msh = GeometryBasics.Mesh(v, triangle_faces)
+
+scene = Makie.mesh(v, triangle_faces; color = 1:length(v), shading = false, scale_plot = false, show_axis = false)
 ```
 
 resulting in:
 
-
-![image](https://user-images.githubusercontent.com/1010467/34985721-569dc228-fab5-11e7-8557-66962cbc7a70.png)
+![image](https://user-images.githubusercontent.com/32143268/79715814-78497d00-82f2-11ea-958c-51b757fad7a0.png)
