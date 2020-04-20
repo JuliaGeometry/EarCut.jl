@@ -29,8 +29,8 @@ triangle_faces = triangulate(polygon)
 # then display with e.g. Makie like this:
 using Makie, Colors
 
-v = map(x-> Point3f0(x[1], x[2], 0), vcat(polygon...))
-msh = GLNormalMesh(vertices=v, faces=triangle_faces)
+v = vcat(polygon...)
+msh = GeometryBasics.Mesh(v, triangle_faces)
 
 scene = Makie.mesh(v, triangle_faces; color = 1:length(v), shading = false, scale_plot = false, show_axis = false)
 ```
